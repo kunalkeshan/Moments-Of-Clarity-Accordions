@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Moments of Clarity - Accordions</title>
+		<style>
+			*,
+			*::before,
+			*::after {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				min-height: 100vh;
+				padding: 2rem;
+			}
+
+			.accordion {
+				margin: 0 auto;
+				color: black;
+				background-color: white;
+				font-size: 18px;
+				font-family: inherit;
+				max-width: 800px;
+			}
+
+			.accordion .container {
+				position: relative;
+				background-color: #eee;
+				color: #444;
+				scroll-margin-top: 2em;
+			}
+
+			.accordion .container:hover {
+				background-color: #ccc;
+				transition: all 1000ms;
+			}
+
+			.accordion .label {
+				position: relative;
+				padding: 1.5em 0.75em;
+				font-size: 1em;
+				cursor: pointer;
+				font-weight: normal;
+			}
+
+			.accordion .label::before {
+				content: '+';
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				font-size: 30px;
+				transform: translateY(-50%);
+			}
+
+			.accordion .content {
+				position: relative;
+				background: white;
+				max-height: 0;
+				z-index: 5;
+				text-align: justify;
+				overflow: hidden;
+				transition: 0.5s;
+				padding-left: 0.75em;
+				padding-right: 0.75em;
+				display: flex;
+				flex-direction: column;
+				gap: 1em;
+			}
+
+			.accordion .container h4 {
+				text-align: center;
+				font-family: inherit;
+				font-weight: 600;
+				font-size: 18px;
+			}
+
+			.accordion hr {
+				width: 0;
+				margin-left: 0;
+				border: 1px solid rgba(128, 128, 128, 0.5);
+			}
+
+			.accordion .container.active {
+				background-color: #ccc;
+			}
+
+			.accordion .container.active .content {
+				height: fit-content;
+				max-height: 2000px;
+				padding-bottom: 1em;
+				padding-top: 1em;
+			}
+
+			.accordion .container.active .label::before {
+				content: '-';
+				font-size: 30px;
+			}
+
+			.accordion__soundcloud-song {
+				line-break: anywhere;
+				word-break: normal;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				font-family: Interstate, Lucida Grande, Lucida Sans Unicode,
+					Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+				font-weight: 100;
+			}
+
+			.accordion__soundcloud-song a {
+				text-decoration: none;
+				font-size: 10px;
+				color: #cccccc;
+				transition: all 500ms;
+			}
+
+			.accordion__soundcloud-song a:hover {
+				color: #8a8a8a;
+			}
+
+			.accordion__date {
+				font-weight: 600;
+				margin-top: 1em;
+			}
+
+			.accordion__body {
+				margin-top: 1em;
+			}
+
+			.youtube-embed {
+				width: 100%;
+				height: auto;
+				margin: 0 auto;
+				aspect-ratio: 9 / 16;
+			}
+
+			.bandcamp {
+				width: 100%;
+				margin: 0 auto;
+			}
+
+			@media (min-width: 500px) {
+				.youtube-embed {
+					width: 40%;
+				}
+				.bandcamp {
+					width: 80%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<section class="accordion">
+			<!-- 1. I tell Shane the story -->
+			<div class="container">
+				<h3 class="label">1. I tell Shane a story</h3>
+				<div class="content">
+					<!-- <iframe width="100%" class="youtube-embed" src="https://www.youtube.com/embed/T699NCRtbTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=11UBJNl7Djf5IB3Z456Vr67vLj3WHitCy"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">June 10, 2021</p>
+						<p class="accordion__body">
+							The small beach town of Agnes Water, Australia is
+							the first place where I parked up in Spoons; my
+							34-year old campervan turned portable music studio
+							&amp; mobile home. After 5 years of my corporate
+							job, I set off with her into the wild to unlock the
+							music I knew was stuck inside me
+						</p>
+						<p class="accordion__body">
+							One night, early into this new journey, I dreamed of
+							the intro to my album. I heard a flute soaring above
+							sounds from my roots (India). The very next day, I
+							met an Aussie man named Shane; parked by the beach,
+							playing the Indian Bansuri flute, sipping chai, and
+							reading about Hindu gods. Would you believe it?
+						</p>
+						<p class="accordion__body">
+							I walked up to Shane and shared my recent dream with
+							him. I asked him if I may record with him in my
+							studio on wheels. He kindly accepted. What you hear
+							is our first interaction, before he played the flute
+							on Platform 1 - the exact intro I dreamt of.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+
+			<!-- 2. Platform 1 -->
+			<div class="container">
+				<h3 class="label">2. Platform 1</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=2423561440/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+
+					<h4>The story:</h4>
+					<!-- <iframe width="315" height="560" src="https://www.youtube.com/embed/hL051PuYR0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1ynytCw7piZ3K0RbhojaLmnM5_4I-LIKR"
+							type="video/mp4"
+						/>
+					</video>
+
+					<div>
+						<p class="accordion__date">A day in November, 2019</p>
+						<p class="accordion__body">
+							The seed of my awakening was planted.
+						</p>
+						<p class="accordion__body">
+							Have you ever had a moment where your worlds
+							collided?
+						</p>
+						<p class="accordion__body">
+							As I crossed my street in Australia, living my
+							routine life that had become almost mundane, I
+							dreamed back to my roots in the jungles of India. A
+							wave of nostalgic sounds followed; the warm rumble
+							of the train, the call of newspaper sellers, a
+							bansuri flute - contrasted with the sharp call of an
+							Aussie pedestrian crossing.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 3. Charlie & the didgeridoo -->
+			<div class="container">
+				<h3 class="label">3. Charlie &amp; the didgeridoo</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/mt5cEY-FXx8" title="Charlie &amp; the didgeridoo - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1_HK1kR7qsTe1m3cxVyW81sEzXYyYezeZ"
+							type="video/mp4"
+						/>
+					</video>
+
+					<div>
+						<p class="accordion__date">Feb 16, 2021</p>
+						<p class="accordion__body">
+							My campervan Spoons &amp; I pulled up at a free camp
+							in the hinterland of the Sunshine Coast. I opened my
+							door to a strong knock owned by a large indigenous
+							man. He said “brother - we are going to be playing
+							the didgeridoo by the river. Wanna come?” I jumped
+							at the chance and asked if I could bring my mic. He
+							said “yes”.
+						</p>
+						<p class="accordion__body">
+							Indigenous tribes have passed on stories of nature,
+							folklore, and traditional wisdom through music for
+							generations. What you hear is a snippet of Charlie -
+							an indigenous Elder and my new friend - teaching me
+							about the ancient connection between stories &amp;
+							sound
+						</p>
+						<p class="accordion__body">
+							Through our interaction, I realised that in order to
+							create music - I should be writing stories instead
+							of simply trying to write ‘tracks.’ The six true
+							&amp; personal stories I then wrote became the songs
+							on this album
+						</p>
+						<p class="accordion__body">
+							[This piece has been shared with consent from
+							Charlie in accordance with Indigenous Culture &amp;
+							Intellectual Property Protocol]
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 4. For Sam -->
+			<div class="container">
+				<h3 class="label">4. For Sam</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/-Xkx1dWmHGA" title="For Sam - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=4269080031/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1GbEtk_oepOYaJIYNrpT3dt_ZvsPiZxI4"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">A day in November, 2019</p>
+						<p class="accordion__body">
+							I took a moment to meditate on the importance of
+							friendship before embarking on my journey of
+							shutting out the world by heading off into the wild
+							in Spoons. When I think of friendship, I think of
+							Sam
+						</p>
+						<p class="accordion__body">
+							For Sam is an ode to my best friend’s gripping and
+							heroic journey. If you have ever looked your inner
+							demons in the eyes, I hope this song inspires you to
+							pick yourself up even when the odds are stacked
+							against you and helps you grow into the best version
+							of yourself with rock-solid determination. This song
+							begins with our days of innocent laughter in
+							boarding school in Kodaikanal, South India. It then
+							moves into a darker tune - when no one could speak
+							to Sam, before developing into something uplifting
+							and inspiring, just like Sam’s journey.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<!-- 5. I enter dream state -->
+			<div class="container">
+				<h3 class="label">5. I enter dream state</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/WlZVJYhsQRg" title="I enter dream state" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1cSHnWW5l6yk3e4SveKKNNykEOSSycw5J"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">December 10, 2019</p>
+						<p class="accordion__body">
+							A few months before I embraced van life, I returned
+							to my roots in India for a holiday. For the past 5
+							years I had worked a corporate job that had started
+							to make me feel disillusioned. I had suppressed the
+							music inside me for too long.
+						</p>
+						<p class="accordion__body">
+							Suddenly - I began to dream, while I was awake. A
+							voice that was foreign yet all too familiar asked me
+							“If you could do anything in this lifetime…what
+							would it be?”
+						</p>
+						<p class="accordion__body">
+							I entered dream state, and had my first moment of
+							clarity.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 6. Moments of Clarity -->
+			<div class="container">
+				<h3 class="label">6. Moments of Clarity</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=2052430200/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+
+					<h4>The story:</h4>
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/9AvqW_Z8rHg" title="Moments of Clarity - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1qJ5VQ-If22Do7TTJDzEnOLwQtdXc37dS"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">December 10, 2019</p>
+						<p class="accordion__body">
+							Moments of Clarity is about the awakening I
+							experienced on an ordinary night where out of
+							nowhere, my soul slapped me. It reminded me that for
+							5 years, I’d put off doing what made it smile -
+							creating music. Just for a second, I allowed myself
+							to dream; I dreamt of quenching my thirst for sonic
+							knowledge, exploring different landscapes and going
+							far from the routine life I had set up in Sydney. In
+							that moment, I smiled and thought to myself - this
+							is my moment of clarity. This track is dedicated to
+							anyone who’s experienced a conscious change in
+							direction.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 7 & 8. Stare pt. 1 & 2 -->
+			<div class="container">
+				<h3 class="label">7 &amp; 8. Stare pt. 1 &amp; 2</h3>
+				<div class="content">
+					<h4>The song:</h4>
+
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1190034129/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=1067176055/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/FpawWBz7hck" title="Stare - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=17VJRvUt79cjtSWacLhD1HF5VHQWa0J7r"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">Jan 22, 2020</p>
+						<p class="accordion__body">
+							My awakening, the ‘moment of clarity’ wasn’t without
+							its challenges. I felt the weight of all the hard
+							decisions I would need to make to live the musical
+							&amp; nomadic life I envisioned. Stare tells the
+							story of how I found independence by ending a
+							relationship; one that was distorted by phone
+							addiction &amp; social media
+						</p>
+						<p class="accordion__body">
+							Two paths cross. The push &amp; pull of dating,
+							turns into love. But when technology enters the
+							picture, the story is put on hold.
+						</p>
+						<p class="accordion__body">
+							We live in a world where we compete with algorithms
+							for people's attention. With Stare, I ask, “what if
+							the algorithm wins?" What if we stare so deep into
+							the depths of our phones, we look up and around and
+							realise we’re gone?
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 9. Blessings in Disguise ft. Sibu -->
+			<div class="container">
+				<h3 class="label">9. Blessings in Disguise ft. Sibu</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=835154035/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<!-- <iframe width="908" height="511" src="https://www.youtube.com/embed/ieHwhrnRryY" title="Blessings in Disguise ft. Sibu - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1xm7mzysW0EWPY2yZMkZUWuWcGf84JR7G"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">Mar 18, 2020</p>
+						<p class="accordion__body">
+							Blessings in Disguise is about a run that changed my
+							life
+						</p>
+						<p class="accordion__body">
+							Inspired by my moment of clarity, I felt compelled
+							to leave my life in Sydney behind; my job,
+							belongings, a relationship - so I could join my
+							dream music school in Los Angeles and chase the
+							music inside of me
+						</p>
+						<p class="accordion__body">
+							That’s when the pandemic arrived and crushed dreams,
+							including mine. When my world felt like it was
+							crashing down around me - I went for a run and
+							something else took over. I felt a fire at the base
+							of my belly. This is portrayed in the second half of
+							the music as a ‘phone call from grit’ (by featured
+							artist ‘Sibu’)
+						</p>
+						<p class="accordion__body">
+							With my newfound strength, I started on my journey
+							and all of the insurmountable problems seemed to
+							slowly resolve. My job dissolved into a redundancy
+							payment, my lack of belongings enabled nomadism and
+							heartbreak turned to forgiveness. Perhaps the best
+							outcome of all was that my faraway music school
+							welcomed me as an online student - allowing me to
+							learn from anywhere
+						</p>
+						<p class="accordion__body">
+							Suddenly, I found myself living the dream that I saw
+							in my moment of clarity. I converted an old
+							campervan into a portable music studio &amp; mobile
+							home named “Spoons.” I was composing tunes from
+							beautiful places as I explored Queensland,
+							Australia. And I tasted a nomadic freedom that I
+							would soon become addicted to. Looking back, I
+							believe all those problems were ‘blessings in
+							disguise’ carefully placed to get me right where I
+							was meant to be
+						</p>
+						<p class="accordion__body">
+							Friends, if you’re taking your leap of faith but are
+							facing problems….remember, that those problems may
+							not be problems at all. They may simply be
+							‘blessings in disguise.’
+						</p>
+						<p class="accordion__body">
+							So breathe deep, put this song on and just. keep.
+							on. running
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 10. A group of travellers say yumm -->
+			<div class="container">
+				<h3 class="label">10. A group of travellers say yumm</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/sPOdTYzho6w" title="A group of travellers say yumm" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=18u3NDOYdUUpsjpWCxAOvYhG1l5CrmvbP"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">April 20th, 2021</p>
+						<p class="accordion__body">
+							Back in the beach town of Agnes Water, where I lived
+							during vanlife in Australia, I met a group of
+							friends at my hostel: “The Bomba Crew.” I had never
+							met a group so diverse, free and drunk with sheer
+							happiness. Every night, these travellers would cook
+							a meal together in the community kitchen or over the
+							campfire. Then, they would hold hands at the table,
+							take a deep breath in and say “Yummmmmm.” The Indian
+							in me first thought they were chanting “Om” but when
+							I listened closely I cracked up 😂
+						</p>
+						<p class="accordion__body">
+							One night, I asked them if I could record this sound
+							that summarised their friendship. What you hear is
+							harmony, forgivable dissonance and laughter from all
+							corners of the world.
+						</p>
+						<p class="accordion__body">
+							“These travellers,” I thought…”they know how to
+							live.”
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 11. epilogue -->
+			<div class="container">
+				<h3 class="label">11. epilogue</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=3485205428/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/TLNXd2RmBZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1KzaLpu3mL_XcULqfEm4a2Tb4iq4xOK7F"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">May 30th, 2022</p>
+						<p class="accordion__body">
+							As I drove my campervan into the unknown, I
+							encountered ‘soul recognition.’ The experience of
+							meeting someone brand new that you feel you’ve known
+							for lifetimes
+						</p>
+						<p class="accordion__body">
+							When I later returned to India and started a new
+							phase of my adventure, I looked out over the
+							mountains - and recalled this feeling. In that
+							moment, this song came to me - one about ancient
+							love, past lives and history repeating.
+						</p>
+						<p class="accordion__body">
+							I was overcome by emotion, knowing in my heart of
+							hearts that what I had experienced was real.
+						</p>
+						<p class="accordion__body">
+							As I began to create the song, it grew into a
+							celebration of the fact that we haven't yet met
+							everyone we will love.
+						</p>
+						<p class="accordion__body">
+							Isn't that an exciting thought? This, my friends, is
+							my epilogue 🙏
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 12. I met a pianist named Ester -->
+			<div class="container">
+				<h3 class="label">12. I met a pianist named Esther</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/fN1cB56r1AA" title="I met a pianist named Esther" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1t8zjRPHwobBuXvC4UYbZFn8ssjZjFy-y"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">A night in June 2021</p>
+						<p class="accordion__body">
+							The campfire at our hostel in Agnes Water pulled in
+							all kinds of funky beings. One night, I met Esther
+							Koehler, a trained German pianist. We both shared a
+							fascination for composing original music and a
+							boredom with traditional methods. She was just
+							passing through..so we said goodbye, joking that we
+							would meet &amp; record music together in the
+							future. Little did I know that she was one of the
+							best players I had ever met. And little did we know
+							how our paths would continue to cross across two
+							continents.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 13. Stare (Esthers's Piano Version from Nick's Pizzeria, Yungaburra) -->
+			<div class="container">
+				<h3 class="label">
+					13. Stare (Esthers's Piano Version from Nick's Pizzeria,
+					Yungaburra)
+				</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=816321685/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<!-- <iframe width="400" height="700" src="https://www.youtube.com/embed/4PyqQHV0LMI" title="Stare (Esther's Piano Version) - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1DodKkI1S5xXl8kfQm3C5AxBg4w-EWqJH"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">Nov 16, 2021</p>
+						<p class="accordion__body">
+							Months later, Esther &amp; I found ourselves in
+							neighboring towns further up the road, in the
+							Atherton Tablelands. We realised we had musical
+							chemistry, and she agreed to help me record a piano
+							version of my song, Stare. We found a piano thanks
+							to Nick’s Pizzeria, in Yungaburra. I played her my
+							song, and explained the story, piece by piece. MIDI
+							was translated into sheet music, and finally - into
+							Esther’s own notation
+						</p>
+						<p class="accordion__body">
+							Then, I stepped back and watched a professional
+							pianist play music I’d written. This was a big
+							moment for me - the first time I truly felt like a
+							composer. Esther, thank you for bringing my piece to
+							life.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+
+			<!-- 14. For Sam (Esther’s Piano Version from Sangeeta’s Place, Bangalore) -->
+			<div class="container">
+				<h3 class="label">
+					14. For Sam (Esther’s Piano Version from Sangeeta’s Place,
+					Bangalore)
+				</h3>
+				<div class="content">
+					<h4>The song:</h4>
+					<div class="bandcamp">
+						<iframe
+							style="border: 0; width: 100%; height: 120px"
+							src="https://bandcamp.com/EmbeddedPlayer/album=3481778799/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=3384970396/transparent=true/"
+							seamless
+							><a
+								href="https://diveaksshschae.bandcamp.com/album/moments-of-clarity-2023"
+								>Moments of Clarity (2023) by Diveakssh Schae</a
+							></iframe
+						>
+					</div>
+					<h4>The story:</h4>
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/XdnJ7iinp9I" title="For Sam (Esther's Piano Version) - The Story" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1t7KqhFwZcYM9nUhlRq8TNweK6h2HFvzU"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">Oct 16, 2022</p>
+						<p class="accordion__body">
+							As Esther &amp; I bid farewell, we joked (again)
+							that we would record a piano version of “For Sam” in
+							India. A year later, this came true.
+						</p>
+						<p class="accordion__body">
+							Esther arrived in India. We found a piano near my
+							roots in Jakkur, Bangalore. Esther somehow condensed
+							a song with multiple layers into a piece that can be
+							played only by her two hands
+						</p>
+
+						<p class="accordion__body">
+							The fact that we crossed paths three times seems
+							like a miracle. And the nature by which perfect
+							piano’s would appear everywhere we went - a divine
+							manifestation.
+						</p>
+						<p class="accordion__body">Enjoy this bonus track ❤️</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<!-- 15. A tutorial on how to say my name -->
+			<div class="container">
+				<h3 class="label">15. A tutorial on how to say my name</h3>
+				<div class="content">
+					<!-- <iframe width="337" height="599" src="https://www.youtube.com/embed/UwsXZ-efiSM" title="A tutorial on how to say my name" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+					<video controls class="youtube-embed">
+						<source
+							src="https://drive.google.com/uc?export=download&amp;id=1VPAgkvbqKObmVRy1pUPgbeyHGNqk6_yQ"
+							type="video/mp4"
+						/>
+					</video>
+					<div>
+						<p class="accordion__date">Oct 13, 2022</p>
+						<p class="accordion__body">
+							A decade of living in Australia with a complicated
+							Indian name made the audio story that you’re
+							listening to a common occurrence. So when Esther
+							&amp; I cornered Tom, an Australian traveller at Goa
+							airport, to get some voice samples - I had to use
+							this gold nugget to capstone my album.
+						</p>
+					</div>
+				</div>
+			</div>
+			<hr />
+		</section>
+		<script>
+			const accordionItems = document.querySelectorAll('.container');
+			const videoItems = document.querySelectorAll('video');
+
+			let lastScrollPosition = 0;
+			videoItems.forEach((item) => {
+				item.addEventListener('fullscreenchange', () => {
+					if (
+						document.fullscreenElement ||
+						document.webkitFullscreenElement ||
+						document.mozFullScreenElement ||
+						document.msFullscreenElement
+					) {
+						setTimeout(
+							() => window.scrollTo(0, lastScrollPosition),
+							10
+						);
+					} else {
+						lastScrollPosition = window.scrollY;
+					}
+				});
+			});
+
+			accordionItems.forEach((item, _, arr) => {
+				item.addEventListener('click', function () {
+					this.classList.toggle('active');
+					this.scrollIntoView(true);
+					arr.forEach((sameItem) => {
+						if (sameItem !== item) {
+							sameItem.classList.remove('active');
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
