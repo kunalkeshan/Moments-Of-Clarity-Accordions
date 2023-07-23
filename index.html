@@ -13,14 +13,14 @@
 				box-sizing: border-box;
 			}
 
-			body {
+			/* body {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				width: 100%;
 				min-height: 100vh;
 				padding: 2rem;
-			}
+			} */
 
 			.accordion {
 				margin: 0 auto;
@@ -28,7 +28,7 @@
 				background-color: white;
 				font-size: 18px;
 				font-family: inherit;
-				max-width: 800px;
+				/* max-width: 800px; */
 			}
 
 			.accordion .container {
@@ -165,6 +165,7 @@
 				<div class="content">
 					<!-- <iframe width="100%" class="youtube-embed" src="https://www.youtube.com/embed/T699NCRtbTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 					<video controls class="youtube-embed">
+						>
 						<source
 							src="https://drive.google.com/uc?export=download&amp;id=1Ynp1maLC025L1Mpw2yueIPMhD12Drse2"
 							type="video/mp4"
@@ -893,36 +894,24 @@
 		<script>
 			const accordionItems = document.querySelectorAll('.container');
 
-			const videoItems = document.querySelectorAll('video');
-
-			let lastScrollPosition = 0;
-			videoItems.forEach((item) => {
-				item.addEventListener('fullscreenchange', () => {
-					if (
-						document.fullscreenElement ||
-						document.webkitFullscreenElement ||
-						document.mozFullScreenElement ||
-						document.msFullscreenElement
-					) {
-						setTimeout(
-							() => window.scrollTo(0, lastScrollPosition),
-							10
-						);
-					} else {
-						lastScrollPosition = window.scrollY;
-					}
-				});
-			});
-
-			accordionItems.forEach((item, _, arr) => {
+			let lastScrollPosition = window.scrollY;
+			accordionItems.forEach((item, i, arr) => {
 				item.addEventListener('click', function () {
 					this.classList.toggle('active');
-					this.scrollIntoView(true);
+					lastScrollPosition = window.scrollY;
 					arr.forEach((sameItem) => {
 						if (sameItem !== item) {
+							const vid = sameItem.querySelector('video');
+							vid.pause();
 							sameItem.classList.remove('active');
 						}
 					});
+					// setTimeout(() => {
+					// 	window.scrollTo({
+					// 		top: lastScrollPosition,
+					// 		behavior: 'smooth',
+					// 	});
+					// }, 10);
 				});
 			});
 		</script>
